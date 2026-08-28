@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Internship Tracker</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Internship Tracker</h1>
+
+  <table>
+    <tr>
+      <th>Company</th>
+      <th>Role</th>
+      <th>Sector</th>
+      <th>Status</th>
+      <th>Date</th>
+      <th>Notes</th>
+      <th></th>
+    </tr>
+    {% for app in applications %}
+    <tr>
+      <td>{{ app.company }}</td>
+      <td>{{ app.role }}</td>
+      <td>{{ app.sector }}</td>
+      <td><span class="status status-{{ app.status | replace(' ', '-') | lower }}">{{ app.status }}</span></td>
+      <td>{{ app.date_applied }}</td>
+      <td>{{ app.notes }}</td>
+      <td>
+        <a href="{{ url_for('edit', app_id=app.id) }}">Edit</a>
+        <form action="{{ url_for('delete', app_id=app.id) }}" method="POST">
+          <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </table>
+
+  <h2>Add Application</h2>
+  <form action="{{ url_for('add') }}" method="POST">
+    <input type="text" name="company" placeholder="Company">
+    <input type="text" name="role" placeholder="Role">
+
+    <select name="sector">
+      {% for s in sectors %}
+      <option value="{{ s }}">{{ s }}</option>
+      {% endfor %}
+    </select>
+
+    <select name="status">
+      {% for s in statuses %}
+      <option value="{{ s }}">{{ s }}</option>
+      {% endfor %}
+    </select>
+
+    <input type="date" name="date_applied">
+    <textarea name="notes"></textarea>
+
+    <button type="submit">Add</button>
+  </form>
+</body>
+</html>

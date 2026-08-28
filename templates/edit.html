@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Edit Application</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <h1>Edit Application</h1>
+
+  <form action="{{ url_for('edit', app_id=application.id) }}" method="POST">
+    <input type="text" name="company" value="{{ application.company }}">
+    <input type="text" name="role" value="{{ application.role }}">
+
+    <select name="sector">
+      {% for s in sectors %}
+      <option value="{{ s }}" {% if s == application.sector %}selected{% endif %}>{{ s }}</option>
+      {% endfor %}
+    </select>
+
+    <select name="status">
+      {% for s in statuses %}
+      <option value="{{ s }}" {% if s == application.status %}selected{% endif %}>{{ s }}</option>
+      {% endfor %}
+    </select>
+
+    <input type="date" name="date_applied" value="{{ application.date_applied }}">
+    <textarea name="notes">{{ application.notes }}</textarea>
+
+    <button type="submit">Save</button>
+  </form>
+
+  <a href="{{ url_for('index') }}">Back</a>
+</body>
+</html>
