@@ -26,3 +26,7 @@ Four routes handle everything:
 - `POST /add` — inserts a new application from the form
 - `GET/POST /edit/<id>` — shows the edit form, then saves changes on submit- `POST /delete/<id>` — removes an application
 - `POST /delete/<id>` — removes an application
+
+## Live Demo
+
+https://internship-tracker-aronarmas.onrender.com
