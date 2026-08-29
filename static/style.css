@@ -1,0 +1,93 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  color: #222;
+  background: #fafafa;
+}
+
+h1 {
+  border-bottom: 2px solid #2f5d8a;
+  padding-bottom: 0.5rem;
+  color: #2f5d8a;
+}
+
+h2 {
+  margin-top: 2rem;
+  color: #2f5d8a;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  background: white;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.6rem;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background: #2f5d8a;
+  color: white;
+}
+
+tr:hover {
+  background: #eaf1f8;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 300px;
+  background: white;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+input, select, textarea, button {
+  padding: 0.5rem;
+  font-family: inherit;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #2f5d8a;
+}
+
+button {
+  background: #2f5d8a;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #24476b;
+}
+
+a {
+  color: #2f5d8a;
+}
+
+.status {
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: white;
+}
+
+.status-not-applied { background: #999; }
+.status-applied { background: #2f5d8a; }
+.status-online-assessment { background: #b8860b; }
+.status-interview { background: #7b4fa3; }
+.status-offer { background: #2e7d32; }
+.status-rejected { background: #c62828; }
